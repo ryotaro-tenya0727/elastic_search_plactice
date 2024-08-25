@@ -15,6 +15,11 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def search
+    @article_id=Article.search(params[:q]).results.first.id
+    redirect_to article_url(@article_id)
+  end
+
   # GET /articles/1/edit
   def edit
   end
